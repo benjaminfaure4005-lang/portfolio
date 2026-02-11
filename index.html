@@ -52,3 +52,58 @@
   </div>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>3D Model Viewer with Text</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: transparent; /* Fond transparent */
+    }
+    #container {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    #background-text {
+      position: absolute;
+      font-size: 5rem; /* Taille encore plus grande */
+      font-weight: bold;
+      font-family: "Monaco", monospace;
+      color: #178582; /* Bleu transparent */
+      bottom: 40%; /* Descend le texte vers le bas */
+      z-index: 1;
+      pointer-events: none; /* Empêche d'interférer avec les interactions du modèle */
+    }
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      z-index: 2; /* Place le modèle devant */
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <!-- Texte en arrière-plan -->
+    <div id="background-text"></div>
+    <!-- Modèle 3D -->
+    <model-viewer 
+      src="https://benjaminfaure4005-lang.github.io/portfolio/ass_tortank_v2.glb"
+      alt="robot marcheur" 
+      camera-controls 
+      auto-rotate 
+      shadow-intensity="1"
+       
+      style="background-color: transparent;">
+    </model-viewer>
+  </div>
+</body>
+</html>
